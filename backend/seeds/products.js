@@ -2,6 +2,8 @@ import dotenv from "dotenv";
 dotenv.config();
 import db from '../config/db.js';
 
+console.log(process.env.PGPASSWORD)
+
 const SAMPLE_PRODUCTS = [
     {
         name: "Premium Wireless Headphones",

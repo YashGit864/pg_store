@@ -4,6 +4,8 @@ dotenv.config();
 
 const {PGUSER, PGPASSWORD, PGDATABASE, PGHOST, PGPORT} = process.env;
 
+console.log({PGUSER, PGPASSWORD, PGDATABASE, PGHOST, PGPORT});
+
 const db = new pg.Client({
     user: PGUSER,
     password: PGPASSWORD,
@@ -11,7 +13,6 @@ const db = new pg.Client({
     port: PGPORT,
     host: PGHOST,
 });
-
 
 db.connect();
 export default db;

@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 import path from 'path';
 
+console.log(process.env.PGPASSWORD, typeof(process.env.PGPASSWORD));
 
 import productRoutes from "./routes/productRoutes.js";
 import db from "./config/db.js";

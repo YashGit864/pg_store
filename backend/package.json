@@ -1,26 +1,28 @@
 {
-  "name": "pern-stack",
+  "name": "pern-stack-tutorial",
   "version": "1.0.0",
-  "description": "",
-  "main": "backend/server.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "build": "npm install && npm install --prefix ../frontend && npm run build --prefix frontend",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
   "type": "module",
+  "license": "ISC",
+  "description": "",
   "dependencies": {
     "@arcjet/node": "^1.0.0-beta.8",
-    "@neondatabase/serverless": "^1.0.1",
+    "@neondatabase/serverless": "^0.10.4",
     "cors": "^2.8.5",
-    "dotenv": "^16.5.0",
-    "express": "^5.1.0",
-    "helmet": "^8.1.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
     "morgan": "^1.10.0",
-    "pg": "^8.16.0"
+    "pg": "^8.11.3"
   },
   "devDependencies": {
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.9"
   }
 }

@@ -14,8 +14,8 @@ function App() {
             {/*data-theme IS NOT WORKING!!!*/}
             <Navbar/>
             <Routes>
-                <Route path="/" element={<HomePage/>} />
-                <Route path="/product/:id" element={<ProductPage/>} />
+                <Route path="/" element={<HomePage/>}/>
+                <Route path="/product/:id" element={<ProductPage/>}/>
             </Routes>
             <Toaster/>
         </div>
