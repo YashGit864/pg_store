@@ -51,6 +51,10 @@ app.use(async (req,res,next) => {
 
 app.use("/api/products", productRoutes);
 
+app.get("/api", (req, res) => {
+    return res.status(200).json({ message: "Hello from the backend!" });
+});
+
 // await db.query(`CREATE TABLE IF NOT EXISTS products (
 //     id SERIAL PRIMARY KEY,
 //     name VARCHAR(255) NOT NULL,
