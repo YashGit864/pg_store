@@ -51,12 +51,19 @@ app.use(async (req,res,next) => {
 
 app.use("/api/products", productRoutes);
 
-await db.query(`CREATE TABLE IF NOT EXISTS products (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    image VARCHAR(255) NOT NULL,
-    price DECIMAL(10,2) NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    )`);
+// await db.query(`CREATE TABLE IF NOT EXISTS products (
+//     id SERIAL PRIMARY KEY,
+//     name VARCHAR(255) NOT NULL,
+//     image VARCHAR(255) NOT NULL,
+//     price DECIMAL(10,2) NOT NULL,
+//     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+//     )`);
+
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 3000;
+    app.listen(PORT, () => {
+        console.log(`Server started on port ${PORT}`);
+    });
+}
 
 export default app;
