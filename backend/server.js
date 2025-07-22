@@ -6,8 +6,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 import path from 'path';
 
-console.log(process.env.PGPASSWORD, typeof(process.env.PGPASSWORD));
-
 import productRoutes from "./routes/productRoutes.js";
 import db from "./config/db.js";
 import {aj} from "./lib/arcjet.js";
@@ -53,13 +51,6 @@ app.use(async (req,res,next) => {
 
 app.use("/api/products", productRoutes);
 
-if(process.env.NODE_ENV === 'production'){
-    app.use(express.static(path.join(__dirname, '/frontend/dist')));
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'frontend', 'dist', 'index.html'));
-    })
-}
-
 await db.query(`CREATE TABLE IF NOT EXISTS products (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -68,6 +59,4 @@ await db.query(`CREATE TABLE IF NOT EXISTS products (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )`);
 
-app.listen(PORT, () => {
-    console.log('Server started on port '+PORT);
-})
+export default app;
